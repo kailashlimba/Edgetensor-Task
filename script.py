@@ -1,4 +1,14 @@
 import cv2
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
+
+cred = credentials.Certificate('firebase_key.json')
+
+firebase_admin.initialize_app(cred,{
+    'databaseURL':'https://edgetensor-8f5d5.firebaseio.com/'
+    
+})
 
 cam = cv2.VideoCapture(0)
 
@@ -27,3 +37,5 @@ while True:
 cam.release()
 
 cv2.destroyAllWindows()
+
+
